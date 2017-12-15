@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>帧动画</title>
+	<style type="text/css">
+		@-webkit-keyframes tuski {
+		    0% {
+		        background-position:0;
+		    }
+		    100% {
+		        background-position: -576px 0;
+		    }
+		}
+		@-moz-keyframes tuski {
+		    0% {
+		        background-position:0;
+		    }
+		    100% {
+		        background-position: -576px 0;
+		    }
+		}
+		@keyframes tuski {
+		    0% {
+		        background-position:0;
+		    }
+		    100% {
+		        background-position: -576px 0;
+		    }
+		}
+
+		#tuski {
+		    width: 48px;
+		    height: 48px;
+		    background-image: url(http://acwongblog.qiniudn.com/2015-03_tuski-sprite.png);
+		    background-repeat: no-repeat;
+		    background-position: 0 0;
+		    -webkit-animation: tuski .5s steps(12) infinite;
+		    -moz-animation: tuski .5s steps(12) infinite;
+		    animation: tuski .5s steps(12) infinite;
+		}
+	</style>
+</head>
+<body>
+	<div id="tuski"></div>
+	<input type="range" id="slider" min="0.5" max="2" step="0.5" value="0.5">
+	<p>拉动滑块调整动画速度</p>
+	<script type="text/javascript">
+		var range = document.querySelector("#slider");
+		var tuski = document.querySelector("#tuski");
+		range.addEventListener("change", function(event){
+		    var value = event.target.value;
+		    tuski.style.webkitAnimationDuration = value + "s";
+		    tuski.style.mozAnimationDuration = value + "s";
+		    tuski.style.animationDuration = value + "s";
+		});
+	</script>
+</body>
+</html>
